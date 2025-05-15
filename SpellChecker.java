@@ -108,7 +108,7 @@ public class SpellChecker {
          boolean validGrammar = true;
          int lastCharacter = length - 1;
          if (input.charAt(lastCharacter) != '.'){
-             System.out.println("Missing fullstop at the end of the sentence");
+             System.out.println("Missing period at the end of the sentence");
              validGrammar = false;
          }
          if (!Character.isUpperCase(input.charAt(0))){
@@ -148,15 +148,15 @@ public class SpellChecker {
             scanner.close();
         }
         catch (Exception e){
-            System.out.println("Error reading essay; " + e.getMessage());
+            System.out.println("Error reading essay: " + e.getMessage());
         }
         return sb.toString().trim();
     }
 
     public static void main(String[] args){
 
-        String[] wordList = readDictionary("words.txt");
-        String input = readEssay("essay.txt");
+        String[] wordList = readDictionary("words.txt"); // words.txt file from https://github.com/dwyl/english-words
+        String input = readEssay("essay.txt"); // Spellchecking an essay of mine for Film History
 
         if(spellCheck(input, wordList)){
             System.out.println("No errors");
